@@ -8,40 +8,40 @@ const confirmBox = document.getElementById("confirmBox");
 const message = document.getElementById("message");
 const heartsContainer = document.getElementById("hearts-container");
 
-// Shared success logic
+// Function to show the full Valentine details
 function showInvitation() {
+  mainButtons.classList.add("hidden");
+  confirmBox.classList.add("hidden");
+
   message.innerHTML = `
     💖 Yay! 💖<br><br>
     <strong>Time:</strong> 2:30 PM – 5:30 PM<br>
     <strong>Venue:</strong> Casa Serian<br><br>
     Thank you for honoring my invitation.<br>
-    Be sure to put on sth pretty, will ya?<br>
+    Put on something pretty, will ya?<br>
     See you 😘
   `;
   message.classList.remove("hidden");
+
   startHearts();
 }
 
-// STRAIGHT YES
-yesBtn.addEventListener("click", () => {
-  mainButtons.classList.add("hidden");
-  showInvitation();
-});
+// Straight YES path
+yesBtn.addEventListener("click", showInvitation);
 
-// NO → Are you sure?
+// NO → confirmation path
 noBtn.addEventListener("click", () => {
   mainButtons.classList.add("hidden");
   confirmBox.classList.remove("hidden");
 });
 
-// Confirmation YES
+// Confirmation YES → popup then invitation
 confirmYes.addEventListener("click", () => {
   alert("I knew you would say yes 😂😂🌚");
-  confirmBox.classList.add("hidden");
   showInvitation();
 });
 
-// 💖 Hearts animation
+// Floating hearts animation
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
