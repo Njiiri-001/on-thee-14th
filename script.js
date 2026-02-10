@@ -16,7 +16,7 @@ const heartsContainer = document.getElementById("hearts-container");
 function showInvitation() {
   initialScreen.classList.add("hidden");
   confirmScreen.classList.add("hidden");
-  popupModal.classList.add("hidden");
+  popupModal.style.display = "none";
   messageScreen.classList.remove("hidden");
 
   message.innerHTML = `
@@ -42,7 +42,7 @@ noBtn.addEventListener("click", () => {
   confirmScreen.classList.remove("hidden");
 });
 
-// Confirmation YES → show modal (centered, transparent)
+// Confirmation YES → show modal
 confirmYes.addEventListener("click", () => {
   confirmScreen.classList.add("hidden");
   popupModal.style.display = "flex"; // show modal
@@ -70,4 +70,3 @@ function startHearts() {
     }, 5000);
   }, 300);
 }
-
