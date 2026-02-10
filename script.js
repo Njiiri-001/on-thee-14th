@@ -3,8 +3,8 @@ const noBtn = document.getElementById("noBtn");
 const message = document.getElementById("message");
 const heartsContainer = document.getElementById("hearts-container");
 
-// YES click
-yesBtn.addEventListener("click", () => {
+// Function that handles acceptance (YES or fake NO)
+function acceptInvitation() {
   message.innerHTML = `
     💖 Yay! 💖<br><br>
     <strong>Time:</strong> 2:30 PM – 5:30 PM<br>
@@ -15,27 +15,28 @@ yesBtn.addEventListener("click", () => {
   `;
   message.classList.remove("hidden");
   startHearts();
-});
+}
 
-// NO dodges cursor
+// YES button
+yesBtn.addEventListener("click", acceptInvitation);
+
+// NO button dodges cursor
 noBtn.addEventListener("mouseenter", () => {
   const x = Math.random() * 220 - 110;
   const y = Math.random() * 50;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-// NO click still means YES 😄
+// NO button becomes YES when clicked
 noBtn.addEventListener("click", () => {
-  message.innerHTML = `
-    Thank you for honoring my invitation 💕<br><br>
-    Put on sth pretty, will ya?<br>
-    See you 😘
-  `;
-  message.classList.remove("hidden");
-  startHearts();
+  noBtn.innerText = "YES 💖";
+  noBtn.style.background = "#e91e63";
+  noBtn.style.color = "white";
+
+  acceptInvitation();
 });
 
-// 💖 Floating hearts
+// 💖 Floating hearts animation
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
