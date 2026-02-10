@@ -1,18 +1,22 @@
+// Elements
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const confirmYes = document.getElementById("confirmYes");
 
-const mainButtons = document.getElementById("mainButtons");
-const confirmBox = document.getElementById("confirmBox");
-
+const initialScreen = document.getElementById("initialScreen");
+const confirmScreen = document.getElementById("confirmScreen");
+const messageScreen = document.getElementById("messageScreen");
 const message = document.getElementById("message");
 const heartsContainer = document.getElementById("hearts-container");
 
-// Function to show the full invitation
+// Function to show full invitation
 function showInvitation() {
-  mainButtons.style.display = "none";
-  confirmBox.style.display = "none";
+  // hide all other screens
+  initialScreen.classList.add("hidden");
+  confirmScreen.classList.add("hidden");
+  messageScreen.classList.remove("hidden");
 
+  // display details
   message.innerHTML = `
     💖 Yay! 💖<br><br>
     <strong>Time:</strong> 2:30 PM – 5:30 PM<br>
@@ -21,7 +25,6 @@ function showInvitation() {
     Put on something pretty, will ya?<br>
     See you 😘
   `;
-  message.classList.remove("hidden");
 
   startHearts();
 }
@@ -31,13 +34,13 @@ yesBtn.addEventListener("click", () => {
   showInvitation();
 });
 
-// NO → shows confirmation only
+// NO → show confirmation screen
 noBtn.addEventListener("click", () => {
-  mainButtons.style.display = "none";
-  confirmBox.style.display = "flex"; // now only visible if NO is clicked
+  initialScreen.classList.add("hidden");
+  confirmScreen.classList.remove("hidden");
 });
 
-// Confirmation YES → popup then full invite
+// Confirmation YES → show popup + invite
 confirmYes.addEventListener("click", () => {
   alert("I knew you would say yes 😂😂🌚");
   showInvitation();
