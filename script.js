@@ -42,17 +42,16 @@ noBtn.addEventListener("click", () => {
   confirmScreen.classList.remove("hidden");
 });
 
-// Confirmation YES → show modal
+// Confirmation YES → show modal (centered, transparent)
 confirmYes.addEventListener("click", () => {
   confirmScreen.classList.add("hidden");
-  popupModal.classList.remove("hidden");
-
-  // Optional: floating hearts inside modal
-  startHearts();
+  popupModal.style.display = "flex"; // show modal
+  startHearts(); // hearts continue floating
 });
 
 // Close modal → show final invite
 closeModal.addEventListener("click", () => {
+  popupModal.style.display = "none"; // hide modal
   showInvitation();
 });
 
@@ -71,3 +70,4 @@ function startHearts() {
     }, 5000);
   }, 300);
 }
+
