@@ -8,7 +8,7 @@ const confirmBox = document.getElementById("confirmBox");
 const message = document.getElementById("message");
 const heartsContainer = document.getElementById("hearts-container");
 
-// Function to show the full Valentine details
+// Function to show the full Valentine invite
 function showInvitation() {
   mainButtons.classList.add("hidden");
   confirmBox.classList.add("hidden");
@@ -26,18 +26,18 @@ function showInvitation() {
   startHearts();
 }
 
-// Straight YES path
+// STRAIGHT YES → immediate full invite
 yesBtn.addEventListener("click", () => {
   showInvitation();
 });
 
-// NO → confirmation path
+// NO → show confirmation only
 noBtn.addEventListener("click", () => {
   mainButtons.classList.add("hidden");
   confirmBox.classList.remove("hidden");
 });
 
-// Confirmation YES → popup then invitation
+// Confirmation YES → popup then full invite
 confirmYes.addEventListener("click", () => {
   alert("I knew you would say yes 😂😂🌚");
   showInvitation();
