@@ -1,9 +1,14 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
+const confirmYes = document.getElementById("confirmYes");
+
+const mainButtons = document.getElementById("mainButtons");
+const confirmBox = document.getElementById("confirmBox");
+
 const message = document.getElementById("message");
 const heartsContainer = document.getElementById("hearts-container");
 
-// Function that handles acceptance (YES or fake NO)
+// Final acceptance logic
 function acceptInvitation() {
   message.innerHTML = `
     💖 Yay! 💖<br><br>
@@ -17,26 +22,29 @@ function acceptInvitation() {
   startHearts();
 }
 
-// YES button
+// YES button (main)
 yesBtn.addEventListener("click", acceptInvitation);
 
 // NO button dodges cursor
 noBtn.addEventListener("mouseenter", () => {
-  const x = Math.random() * 220 - 110;
-  const y = Math.random() * 50;
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 40;
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
 
-// NO button becomes YES when clicked
+// NO button click → show confirmation
 noBtn.addEventListener("click", () => {
-  noBtn.innerText = "YES 💖";
-  noBtn.style.background = "#e91e63";
-  noBtn.style.color = "white";
+  mainButtons.classList.add("hidden");
+  confirmBox.classList.remove("hidden");
+});
 
+// Confirmation YES
+confirmYes.addEventListener("click", () => {
+  alert("I knew you would say yes 😂😂🌚");
   acceptInvitation();
 });
 
-// 💖 Floating hearts animation
+// 💖 Hearts animation
 function startHearts() {
   setInterval(() => {
     const heart = document.createElement("div");
