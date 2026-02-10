@@ -2,21 +2,23 @@
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const confirmYes = document.getElementById("confirmYes");
+const closeModal = document.getElementById("closeModal");
 
 const initialScreen = document.getElementById("initialScreen");
 const confirmScreen = document.getElementById("confirmScreen");
 const messageScreen = document.getElementById("messageScreen");
+const popupModal = document.getElementById("popupModal");
+
 const message = document.getElementById("message");
 const heartsContainer = document.getElementById("hearts-container");
 
 // Function to show full invitation
 function showInvitation() {
-  // hide all other screens
   initialScreen.classList.add("hidden");
   confirmScreen.classList.add("hidden");
+  popupModal.classList.add("hidden");
   messageScreen.classList.remove("hidden");
 
-  // display details
   message.innerHTML = `
     💖 Yay! 💖<br><br>
     <strong>Time:</strong> 2:30 PM – 5:30 PM<br>
@@ -40,9 +42,17 @@ noBtn.addEventListener("click", () => {
   confirmScreen.classList.remove("hidden");
 });
 
-// Confirmation YES → show popup + invite
+// Confirmation YES → show modal
 confirmYes.addEventListener("click", () => {
-  alert("I knew you would say yes 😂😂🌚");
+  confirmScreen.classList.add("hidden");
+  popupModal.classList.remove("hidden");
+
+  // Optional: floating hearts inside modal
+  startHearts();
+});
+
+// Close modal → show final invite
+closeModal.addEventListener("click", () => {
   showInvitation();
 });
 
