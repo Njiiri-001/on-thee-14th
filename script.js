@@ -8,7 +8,7 @@ const confirmBox = document.getElementById("confirmBox");
 const message = document.getElementById("message");
 const heartsContainer = document.getElementById("hearts-container");
 
-// Function to show the full Valentine invite
+// Function to show full Valentine invite
 function showInvitation() {
   mainButtons.classList.add("hidden");
   confirmBox.classList.add("hidden");
@@ -31,7 +31,7 @@ yesBtn.addEventListener("click", () => {
   showInvitation();
 });
 
-// NO → show confirmation only
+// NO → shows "Are you sure 🥹?" + confirmation YES button
 noBtn.addEventListener("click", () => {
   mainButtons.classList.add("hidden");
   confirmBox.classList.remove("hidden");
