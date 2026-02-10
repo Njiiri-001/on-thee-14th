@@ -8,10 +8,10 @@ const confirmBox = document.getElementById("confirmBox");
 const message = document.getElementById("message");
 const heartsContainer = document.getElementById("hearts-container");
 
-// Function to show full Valentine invite
+// Function to show the full invitation
 function showInvitation() {
-  mainButtons.classList.add("hidden");
-  confirmBox.classList.add("hidden");
+  mainButtons.style.display = "none";
+  confirmBox.style.display = "none";
 
   message.innerHTML = `
     💖 Yay! 💖<br><br>
@@ -31,10 +31,10 @@ yesBtn.addEventListener("click", () => {
   showInvitation();
 });
 
-// NO → shows "Are you sure 🥹?" + confirmation YES button
+// NO → shows confirmation only
 noBtn.addEventListener("click", () => {
-  mainButtons.classList.add("hidden");
-  confirmBox.classList.remove("hidden");
+  mainButtons.style.display = "none";
+  confirmBox.style.display = "flex"; // now only visible if NO is clicked
 });
 
 // Confirmation YES → popup then full invite
