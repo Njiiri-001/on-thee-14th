@@ -3,32 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>On thee 14th 💘</title>
+  <title>On the 14th 💘</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="overlay">
+  <!-- Initial Invite Screen -->
+  <div class="overlay" id="initialScreen">
     <div class="container">
-      <h1>On thee 14th 💕</h1>
+      <h1>On the 14th 💕</h1>
       <h2>Mzee darlings,<br>will you be my Valentine?</h2>
 
-      <!-- Main buttons -->
-      <div class="buttons" id="mainButtons">
+      <div class="buttons">
         <button id="yesBtn">YES 💖</button>
         <button id="noBtn">NO 🙈</button>
       </div>
-
-      <!-- Confirmation only appears if NO is clicked -->
-      <div class="buttons hidden" id="confirmBox">
-        <p class="confirm-text">Are you sure 🥹?</p>
-        <button id="confirmYes">YES 💖</button>
-      </div>
-
-      <div id="message" class="hidden"></div>
     </div>
   </div>
 
+  <!-- Confirmation Screen (only if NO clicked) -->
+  <div class="overlay hidden" id="confirmScreen">
+    <div class="container">
+      <p class="confirm-text">Are you sure 🥹?</p>
+      <button id="confirmYes">YES 💖</button>
+    </div>
+  </div>
+
+  <!-- Message Screen (venue/time/details) -->
+  <div class="overlay hidden" id="messageScreen">
+    <div class="container">
+      <div id="message"></div>
+    </div>
+  </div>
+
+  <!-- Hearts container -->
   <div id="hearts-container"></div>
 
   <script src="script.js"></script>
