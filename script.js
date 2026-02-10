@@ -27,7 +27,9 @@ function showInvitation() {
 }
 
 // Straight YES path
-yesBtn.addEventListener("click", showInvitation);
+yesBtn.addEventListener("click", () => {
+  showInvitation();
+});
 
 // NO → confirmation path
 noBtn.addEventListener("click", () => {
