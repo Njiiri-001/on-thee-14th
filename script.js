@@ -21,10 +21,10 @@ function showInvitation() {
 
   message.innerHTML = `
     💖 Yay! 💖<br><br>
-    <strong>Time:</strong> 2:30 PM – 5:30 PM<br>
+    <strong>Time:</strong> 2:00 PM – 5:30 PM<br>
     <strong>Venue:</strong> Casa Serian<br><br>
     Thank you for honoring my invitation.<br>
-    Put on something pretty, will ya?<br>
+    Put on something pretty darlings, will ya?<br>
     See you 😘
   `;
 
@@ -70,3 +70,4 @@ function startHearts() {
     }, 5000);
   }, 300);
 }
+
